@@ -1,5 +1,6 @@
-# hashcode2020-prep
-A solution for the practice round of Google HashCode 2020 
+# Hashcode 2020 practice round
+
+An optimal solution for the practice round of Google HashCode 2020. 
 
 ![Submission score](static/score.png)
 
@@ -34,10 +35,10 @@ Source: [Google Hashcode Judge System](https://hashcodejudge.withgoogle.com/#/ro
 a_example | dynamic | 16
 b_small | dynamic | 100
 c_medium | dynamic | 4500
-d_quite_big | RTL | 999999932
+d_quite_big | RTL | 1000000000
 e_also_big | RTL | 505000000
 
-The total score is *1,505,004,548* (68 points below the best known solution)
+The total score is **1,505,004,616** (the best known solution)
 
 
 

@@ -28,20 +28,26 @@ class Simple(Alg):
         res = []
         best = 0
 
-        for j in range(self.data.N, 1, -1):
-            loc_res = []
-            loc_best = 0
-            for i in range(j - 1, -1, -1):
-                if loc_best + self.data.slices[i] > self.data.M:
-                    continue
-                loc_res.append(i)
-                loc_best += self.data.slices[i]
+        try:
+            for k in range(self.data.N - 1):
+                for j in range(self.data.N, k + 1, -1):
+                    loc_res = []
+                    loc_best = 0
+                    # for i in range(j - 1, -1, -1):
+                    for i in range(self.data.N):
+                        if abs(i - j) < 1 or abs(i - k) < 1 or loc_best + self.data.slices[i] > self.data.M:
+                            continue
+                        loc_res.append(i)
+                        loc_best += self.data.slices[i]
 
-            if loc_best > best:
-                res = loc_res
-                best = loc_best
+                    if loc_best > best:
+                        res = loc_res
+                        best = loc_best
+                        print(f"New best: {best}")
+        except KeyboardInterrupt as e:
+            # handle keyboard interruption to stop manually
+            print(f"{e} has been triggered")
 
-        res = [self.data.N - i for i in res]
         self.write(res)
 
         return best, res
